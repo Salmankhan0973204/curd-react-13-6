@@ -44,7 +44,7 @@ export default function Create() {
       }
     
       const submitHandler = event => {
-        axios.post(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`, {
+        axios.post(`http://localhost:8000/posts`, {
             firstNameValue,
             lastNameValue,
             emailValue,

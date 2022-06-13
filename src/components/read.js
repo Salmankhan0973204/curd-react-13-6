@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Read() {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
-        axios.get(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`)
+        axios.get(`http://localhost:8000/posts`)
             .then((response) => {
                 console.log(response.data)
                 setAPIData(response.data);
@@ -21,14 +21,14 @@ export default function Read() {
         localStorage.setItem('Email',emailValue)
     }
     const getData = () => {
-        axios.get(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData`)
+        axios.get(`http://localhost:8000/posts`)
             .then((getData) => {
                 setAPIData(getData.data);
             })
     }
 
     const onDelete = (id) => {
-        axios.delete(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData/${id}`)
+        axios.delete(`http://localhost:8000/posts/${id}`)
         .then(() => {
             getData();
         })

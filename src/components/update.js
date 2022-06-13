@@ -6,9 +6,9 @@ import { useHistory } from 'react-router';
 export default function Update() {
     let history = useHistory();
     const [id, setID] = useState(null);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
+    const [firstNameValue, setFirstName] = useState('');
+    const [lastNameValue, setLastName] = useState('');
+    const [emailValue, setEmail] = useState('');
 
     useEffect(() => {
         setID(localStorage.getItem('ID'))
@@ -18,12 +18,12 @@ export default function Update() {
     }, []);
 
     const updateAPIData = () => {
-        axios.put(`https://60fbca4591156a0017b4c8a7.mockapi.io/fakeData/${id}`, {
-            firstName,
-            lastName,
-            email
+        axios.put(`http://localhost:8000/posts/${id}`, {
+            firstNameValue,
+            lastNameValue,
+            emailValue
         }).then(() => {
-            console.log(firstName , lastName , email)
+            console.log(firstNameValue , lastNameValue , emailValue)
             history.push('/read')
         })
     }
@@ -32,15 +32,15 @@ export default function Update() {
             <Form className="create-form">
                 <Form.Field>
                     <label>First Name</label>
-                    <input placeholder='First Name' value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                    <input placeholder='First Name' value={firstNameValue} onChange={(e) => setFirstName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
                     <label>Last Name</label>
-                    <input placeholder='Last Name' value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                    <input placeholder='Last Name' value={lastNameValue} onChange={(e) => setLastName(e.target.value)}/>
                 </Form.Field>
                 <Form.Field>
                     <label>Email</label>
-                    <input placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <input placeholder='email' value={emailValue} onChange={(e) => setEmail(e.target.value)}/>
                 </Form.Field>
                
                 <Button type='submit' onClick={updateAPIData}>Update</Button>

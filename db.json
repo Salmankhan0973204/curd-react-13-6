@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "firstNameValue": "Salman khan",
+      "lastNameValue": "sewrf",
+      "emailValue": "sdfds@",
+      "id": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
